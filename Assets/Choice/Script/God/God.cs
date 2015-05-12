@@ -3,6 +3,11 @@ using System.Collections;
 
 public static class God {
 
+	public static readonly string TAG = typeof(God).Name;
+
+	// ===============================
+	// Properties
+	// ===============================
 	private static EliteGuidanceUI guidanceUI;
 	public static EliteGuidanceUI GuidanceUI {
 		get {
@@ -22,4 +27,23 @@ public static class God {
 			return hero;
 		}
 	}
+
+	private static EliteSFX sfx;
+	public static EliteSFX SFX {
+		get {
+			if(sfx == null) {
+				sfx = GameObject.FindGameObjectWithTag("SFX").GetComponent<EliteSFX>();
+			}
+			return sfx;
+		}
+	}
+
+	// ===============================
+	// Functions
+	// ===============================
+	public static void Reset() {
+		UtilLogger.Log(TAG, "Reset()");
+		GameObject goStartPosition = GameObject.Find("Start Position");
+		Hero.transform.position = goStartPosition.transform.position;
+	}	
 }

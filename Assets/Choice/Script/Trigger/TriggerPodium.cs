@@ -2,19 +2,19 @@
 using System.Collections;
 
 [RequireComponent(typeof(Collider))]
-public class GeneInfo : MonoBehaviour {
+public class TriggerPodium : MonoBehaviour {
 	
-	private readonly string TAG = typeof(GeneInfo).Name;
+	private readonly string TAG = typeof(TriggerPodium).Name;
 	
 	public Vector3 offset;
 	public string message = "";
-
+	
 	ActorInfo info;
 	
 	void Awake() {
-
+		
 		Object oClonerInfo = Resources.Load("Info", typeof(GameObject));
-
+		
 		GameObject goInfo = GameObject.Instantiate(oClonerInfo) as GameObject;
 		goInfo.transform.parent = transform;
 		goInfo.transform.localPosition = (new Vector3(0, 0, 0)) + offset;
@@ -26,13 +26,13 @@ public class GeneInfo : MonoBehaviour {
 	void Start() {
 		
 	}
-
+	
 	void Update() {
 		if(Input.GetKeyDown(KeyCode.Z)) {
-
+			God.SFX.PodiumBeep.Play();	
 		}
 	}
-
+	
 	void OnTriggerEnter(Collider other) {
 		UtilLogger.Log(TAG, "OnTriggerEnter()");
 		info.Show();

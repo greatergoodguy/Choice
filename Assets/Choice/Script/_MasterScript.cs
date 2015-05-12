@@ -9,7 +9,11 @@ public class _MasterScript : MonoBehaviour {
 	void Awake() {
 		tPauseUI = transform.FindChild("Pause UI");
 	}
-	
+
+	void Start() {
+		God.Hero.AttachSFX(God.SFX);
+	}
+
 	void Update() {
 		if((Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Escape)) && !isPaused) {
 			Pause();
