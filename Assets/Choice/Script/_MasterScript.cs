@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class _MasterScript : MonoBehaviour {
-
+	 
 	bool isPaused = false;
 	Transform tPauseUI;
 
