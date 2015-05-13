@@ -5,8 +5,10 @@ public class TriggerReset : MonoBehaviour {
 
 	public readonly string TAG = typeof(TriggerReset).Name;
 
+	bool isTriggered = false;
+
 	void Update() {
-		if(Input.GetKeyDown(KeyCode.R)) {
+		if(isTriggered && Input.GetKeyDown(KeyCode.R)) {
 			God.Reset();
 		}
 	}
@@ -15,11 +17,12 @@ public class TriggerReset : MonoBehaviour {
 		UtilLogger.Log(TAG, "OnTriggerEnter()");
 		God.GuidanceUI.Show();
 		God.GuidanceUI.Text = "Press 'R' to reset the game";
+		isTriggered = true;
 	}
 	
 	void OnTriggerExit(Collider other) {
 		UtilLogger.Log(TAG, "OnTriggerExit()");
 		God.GuidanceUI.Hide();
-		God.GuidanceUI.Text = "";
+		isTriggered = false;
 	}
 }

@@ -38,6 +38,17 @@ public static class God {
 		}
 	}
 
+	private static EliteHelpUI helpUI;
+	public static EliteHelpUI HelpUI {
+		get {
+			if(helpUI == null) {
+				helpUI = GameObject.FindGameObjectWithTag("Help UI").GetComponent<EliteHelpUI>();
+			}
+			return helpUI;
+		}
+	}
+
+
 	// ===============================
 	// Functions
 	// ===============================

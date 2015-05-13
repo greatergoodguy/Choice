@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class EliteGuidanceUI : MonoBehaviour {
+public class EliteHelpUI : MonoBehaviour {
 
 	Transform tCanvas;
 	Text textMessage;
