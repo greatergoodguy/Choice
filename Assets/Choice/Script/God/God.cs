@@ -48,6 +48,15 @@ public static class God {
 		}
 	}
 
+	private static EliteParse parse;
+	public static EliteParse Parse {
+		get {
+			if(parse == null) {
+				parse = GameObject.FindGameObjectWithTag("Parse").GetComponent<EliteParse>();
+			}
+			return parse;
+		}
+	}
 
 	// ===============================
 	// Functions

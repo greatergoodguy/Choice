@@ -8,7 +8,8 @@ public class TriggerPodium : MonoBehaviour {
 	
 	public Vector3 offset;
 	public string message = "";
-	
+
+	bool isTriggered = false;
 	ActorInfo info;
 	
 	void Awake() {
@@ -28,7 +29,7 @@ public class TriggerPodium : MonoBehaviour {
 	}
 	
 	void Update() {
-		if(Input.GetKeyDown(KeyCode.Z)) {
+		if(isTriggered && Input.GetKeyDown(KeyCode.Z)) {
 			God.SFX.PodiumBeep.Play();	
 		}
 	}
@@ -36,11 +37,13 @@ public class TriggerPodium : MonoBehaviour {
 	void OnTriggerEnter(Collider other) {
 		UtilLogger.Log(TAG, "OnTriggerEnter()");
 		info.Show();
+		isTriggered = true;
 	}
 	
 	void OnTriggerExit(Collider other) {
 		UtilLogger.Log(TAG, "OnTriggerExit()");
 		info.Hide();
+		isTriggered = false;
 	}
 	
 }
