@@ -58,6 +58,16 @@ public static class God {
 		}
 	}
 
+	private static EliteDebugUI debugUI;
+	public static EliteDebugUI DebugUI {
+		get {
+			if(debugUI == null) {
+				debugUI = GameObject.FindGameObjectWithTag("Debug UI").GetComponent<EliteDebugUI>();
+			}
+			return debugUI;
+		}
+	}
+
 	// ===============================
 	// Functions
 	// ===============================

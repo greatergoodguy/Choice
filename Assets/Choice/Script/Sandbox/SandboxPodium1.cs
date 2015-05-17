@@ -9,7 +9,7 @@ public class SandboxPodium1 : MonoBehaviour {
 
 	void Update() {
 		if(isTriggered && Input.GetKeyDown(KeyCode.Z)) {
-			God.Parse.UpdateRoom1(false);
+//			God.Parse.UpdateRoom1(false);
 		}
 	}
 

@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
+using System;
 using System.Collections;
 
 [RequireComponent(typeof(Collider))]
@@ -11,10 +13,16 @@ public class TriggerPodium : MonoBehaviour {
 
 	bool isTriggered = false;
 	ActorInfo info;
+
+	[Serializable]
+	public class ButtonClickedEvent : UnityEvent {}
+	// Event delegates triggered on click.
+	[SerializeField]
+	private ButtonClickedEvent m_OnClick = new ButtonClickedEvent();
 	
 	void Awake() {
 		
-		Object oClonerInfo = Resources.Load("Info", typeof(GameObject));
+		GameObject oClonerInfo = (GameObject) Resources.Load("Info", typeof(GameObject));
 		
 		GameObject goInfo = GameObject.Instantiate(oClonerInfo) as GameObject;
 		goInfo.transform.parent = transform;
@@ -30,7 +38,8 @@ public class TriggerPodium : MonoBehaviour {
 	
 	void Update() {
 		if(isTriggered && Input.GetKeyDown(KeyCode.Z)) {
-			God.SFX.PodiumBeep.Play();	
+			God.SFX.PodiumBeep.Play();
+			m_OnClick.Invoke();
 		}
 	}
 	

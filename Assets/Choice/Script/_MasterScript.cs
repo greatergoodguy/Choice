@@ -21,6 +21,14 @@ public class _MasterScript : MonoBehaviour {
 		else if((Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Escape)) && isPaused) {
 			UnPause();
 		}
+
+		if(Input.GetKeyDown(KeyCode.M)) {
+			bool isAudioEnabled = God.Hero.IsAudioEnabled;
+
+			isAudioEnabled = !isAudioEnabled;
+			God.Hero.SetAudioEnabled(isAudioEnabled);
+			God.DebugUI.SetAudioEnabled(isAudioEnabled);
+		}
 	}
 
 	void Pause() {
