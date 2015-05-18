@@ -6,16 +6,28 @@ public class EliteGuidanceUI : MonoBehaviour {
 
 	Transform tCanvas;
 	Text textMessage;
+	Text textExtra;
 	
-	public string Text
+	public string Message
 	{
 		get { return textMessage.text; }
 		set { textMessage.text = value; }
 	}
-	
+
+	public string Extra
+	{
+		get { return textExtra.text; }
+		set { textExtra.text = value; }
+	}
+
+
 	void Awake() {
-		textMessage = transform.FindChild("Canvas/Panel/Message").GetComponent<Text>();
 		tCanvas = transform.FindChild("Canvas");
+		textMessage = transform.FindChild("Canvas/Panel/Message").GetComponent<Text>();
+		textExtra = transform.FindChild("Canvas/Panel/Extra").GetComponent<Text>();
+
+		Message = "";
+		Extra = "";
 	}
 	
 	void Start() {

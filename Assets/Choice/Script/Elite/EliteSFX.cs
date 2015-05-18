@@ -22,4 +22,14 @@ public class EliteSFX : MonoBehaviour {
 			return podiumBeep;
 		}
 	}
+
+	private AudioSource invalid;
+	public AudioSource Invalid {
+		get {
+			if(invalid == null) {
+				invalid = tBundle.FindChild("Invalid").GetComponent<AudioSource>();
+			}
+			return invalid;
+		}
+	}
 }

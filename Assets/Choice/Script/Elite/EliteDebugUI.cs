@@ -6,6 +6,12 @@ public class EliteDebugUI : MonoBehaviour {
 
 	Transform tCanvas;
 	Text textAudioEnabled;
+
+	public bool IsVisible {
+		get {
+			return tCanvas.gameObject.activeSelf;
+		}
+	}
 	
 	void Awake() {
 		textAudioEnabled = transform.FindChild("Canvas/Panel/Audio Enabled Text").GetComponent<Text>();
@@ -13,7 +19,7 @@ public class EliteDebugUI : MonoBehaviour {
 	}
 	
 	void Start() {
-		//Hide();
+		Hide();
 	}
 	
 	public void Show() {

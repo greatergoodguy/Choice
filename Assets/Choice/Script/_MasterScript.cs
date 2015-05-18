@@ -29,6 +29,15 @@ public class _MasterScript : MonoBehaviour {
 			God.Hero.SetAudioEnabled(isAudioEnabled);
 			God.DebugUI.SetAudioEnabled(isAudioEnabled);
 		}
+
+		if(Input.GetKeyDown(KeyCode.Alpha0)) {
+			if(God.DebugUI.IsVisible) {
+				God.DebugUI.Hide();
+			}
+			else {
+				God.DebugUI.Show();
+			}
+		}
 	}
 
 	void Pause() {

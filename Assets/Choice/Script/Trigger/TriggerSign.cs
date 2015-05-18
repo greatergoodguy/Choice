@@ -8,14 +8,22 @@ public class TriggerSign : MonoBehaviour {
 	public string message;
 
 	bool isTriggered = false;
+	bool isSignShowing = false;
 
 	void Update() {
 		bool isShiftKeyDown = Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.LeftShift);
-		if(isTriggered && isShiftKeyDown) {
+		if(isTriggered && isShiftKeyDown && !isSignShowing) {
 			God.HelpUI.Hide();
 
-			God.GuidanceUI.Text = "I am a good sign";
+			God.Hero.Freeze();
+
+			God.GuidanceUI.Message = "I am a good sign";
+			God.GuidanceUI.Extra = "Press 'Shift' to Exit";
 			God.GuidanceUI.Show();
+			isSignShowing = true;
+		}
+		else if(isTriggered && isShiftKeyDown && isSignShowing) {
+
 		}
 	}
 	

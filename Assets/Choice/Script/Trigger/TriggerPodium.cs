@@ -38,7 +38,6 @@ public class TriggerPodium : MonoBehaviour {
 	
 	void Update() {
 		if(isTriggered && Input.GetKeyDown(KeyCode.Z)) {
-			God.SFX.PodiumBeep.Play();
 			m_OnClick.Invoke();
 		}
 	}

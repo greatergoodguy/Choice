@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class TriggerReset : MonoBehaviour {
@@ -16,7 +16,7 @@ public class TriggerReset : MonoBehaviour {
 	void OnTriggerEnter(Collider other) {
 		UtilLogger.Log(TAG, "OnTriggerEnter()");
 		God.GuidanceUI.Show();
-		God.GuidanceUI.Text = "Press 'R' to reset the game";
+		God.GuidanceUI.Message = "Press 'R' to reset the game";
 		isTriggered = true;
 	}
 	

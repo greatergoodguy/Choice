@@ -3,6 +3,7 @@ using System.Collections;
 
 public class EliteHero : MonoBehaviour {
 
+	CharacterMotor characterMotor;
 	MouseLook mouseLookHero;
 	MouseLook mouseLookCamera;
 	AudioListener audioListener;
@@ -14,18 +15,20 @@ public class EliteHero : MonoBehaviour {
 	}
 
 	void Awake() {
+		characterMotor = GetComponent<CharacterMotor>();
 		mouseLookHero = GetComponent<MouseLook>();
 		mouseLookCamera = transform.FindChild("Main Camera").GetComponent<MouseLook>();
-
 		audioListener = transform.FindChild("Main Camera").GetComponent<AudioListener>();
 	}
 	
 	public void Freeze() {
+		characterMotor.enabled = false;
 		mouseLookHero.enabled = false;
 		mouseLookCamera.enabled = false;
 	}
 	
 	public void UnFreeze() {
+		characterMotor.enabled = true;
 		mouseLookHero.enabled = true;
 		mouseLookCamera.enabled = true;
 	}
